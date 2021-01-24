@@ -1,0 +1,28 @@
+
+var arr = new Array(5)
+
+function fillArray() {
+    for (var i = 0; i < arr.length; i++) {
+        arr[i] = Math.floor(Math.random() * 201 - 100)
+    }
+}
+
+function replaceFromArray() {
+  for (var i = 0; i < arr.length; i++) {
+        if (arr[i] < 0) arr[i] = 0
+    }
+}
+
+function addToArray() {
+    idxShift = 0
+    tmpArray = []
+    for (var i = 0; i < arr.length; i++) {
+      if (i % 2 == 0 && arr[i] == 0) {
+            tmpArray.push(i + 1 + idxShift)
+            idxShift++
+      }
+    }
+    tmpArray.forEach(function(index){
+      arr.splice(index, 0, -1)
+    })
+}
